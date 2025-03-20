@@ -68,7 +68,7 @@ For more detailed usage and API commands, please refer to the [orginal documenta
 
 This package builds upon the excellent work of the original Broadworks OCI-P Interface package. Special thanks to:
 
-[Nigel Metheringham `<nigelm@cpan.org>`](https://github.com/nigelm/) – Developer of the original Python version.
+[@nigelm (Nigel Metheringham)](https://github.com/nigelm/) – Developer of the original Python version.
 
 Karol Skibiński – For extensive testing, bug reporting, and valuable contributions.
 
