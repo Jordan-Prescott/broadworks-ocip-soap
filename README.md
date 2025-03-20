@@ -1,6 +1,6 @@
 # Broadworks-OCIP-SOAP
 
-[![pypi version](https://img.shields.io/pypi/v/broadworks_ocip.svg)](https://pypi.python.org/pypi/broadworks_ocip-soap)
+[![pypi version](https://img.shields.io/pypi/v/broadworks_ocip_soap.svg)](https://pypi.python.org/pypi/broadworks_ocip-soap)
 
 Broadworks-OCIP-SOAP is a Python wrapper package built on top of the original [Broadworks OCI-P Interface](https://github.com/nigelm/broadworks_ocip/) package. It changes the connection method to access the Broadworks OCIP provisioning interface over the SOAP API, while keeping the same usage, commands, and overall behavior as the original package.
 
