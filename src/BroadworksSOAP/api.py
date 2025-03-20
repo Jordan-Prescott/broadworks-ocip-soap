@@ -26,7 +26,7 @@ class BroadworksSOAP:
         [type]: [description]
     """
 
-    wsdl_url: str = attr.ib()
+    url: str = attr.ib()
     username: str = attr.ib()
     password: str = attr.ib()
     user_agent: str = attr.ib(default="BroadworksSOAP (TODO: Add link to docs)")
@@ -70,7 +70,7 @@ class BroadworksSOAP:
         settings = Settings(strict=False, xml_huge_tree=True)
         try:
             self.soap_client = Client(
-                wsdl=self.wsdl_url + "?wsdl", transport=transport, settings=settings
+                wsdl=self.url + "?wsdl", transport=transport, settings=settings
             )
             self.logger.info("SOAP client initialised successfully.")
         except Exception as e:

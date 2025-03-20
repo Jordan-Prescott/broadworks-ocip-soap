@@ -1,12 +1,43 @@
+[build-system]
+requires = [
+    "setuptools",
+    "wheel"
+]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools]
+license-files = []
+
 [project]
-name = "broadworks-soap-api"
+name = "broadworks-ocip-soap"
 version = "0.1.0"
-description = "Add your description here"
+description = "API interface to the OCI-P SOAP provisioning interface of a Broadworks softswitch."
 readme = "README.md"
-requires-python = ">=3.12"
-dependencies = [
-    "attr>=0.3.2",
-    "broadworks-ocip>=2.2.0",
-    "requests>=2.32.3",
-    "zeep>=4.3.1",
+requires-python = ">=3.9, <3.13"
+license = { file = "LICENSE" }
+authors = [
+    { name = "Jordan Prescott", email = "hello@minimalmind.io" }
+]
+classifiers=[
+    # Target Audience
+    "Intended Audience :: Developers",
+    # License
+    "License :: OSI Approved :: MIT License",
+    # Programming Languages
+    "Programming Language :: Python",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.12",
+    # Operating Systems
+    "Operating System :: OS Independent",
+    
+    "Topic :: Software Development :: Libraries",
+    "Topic :: Utilities",
+]
+keywords = ["broadworks", "oci", "soap", "telephony", "voip", "cisco"]
+
+[dependency-groups]
+dev = [
+    "twine>=6.1.0",
 ]
