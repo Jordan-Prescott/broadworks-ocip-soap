@@ -1,8 +1,13 @@
 # Broadworks-OCIP-SOAP
 
+[![Downloads](https://static.pepy.tech/badge/broadworks-ocip-soap)](https://pepy.tech/project/broadworks-ocip-soap)
+[![Downloads](https://static.pepy.tech/badge/broadworks-ocip-soap/month)](https://pepy.tech/project/broadworks-ocip-soap)
+[![Downloads](https://static.pepy.tech/badge/broadworks-ocip-soap/week)](https://pepy.tech/project/broadworks-ocip-soap)
 [![pypi version](https://img.shields.io/pypi/v/broadworks_ocip_soap.svg)](https://pypi.python.org/pypi/broadworks_ocip-soap)
 
 Broadworks-OCIP-SOAP is a Python wrapper package built on top of the original [Broadworks OCI-P Interface](https://github.com/nigelm/broadworks_ocip/) package. It changes the connection method to access the Broadworks OCIP provisioning interface over the SOAP API, while keeping the same usage, commands, and overall behavior as the original package.
+
+*Note: This version reflects the wrapper's initial release. All underlying functionality is provided by the original Broadworks OCI-P Interface package.*
 
 ---
 
@@ -32,14 +37,6 @@ However, as this is another package and uses a different connection there are sm
 
 ---
 
-## Current Version
-
-Version: 0.1.0
-
-*Note: This version reflects the wrapper's initial release. All underlying functionality is provided by the original Broadworks OCI-P Interface package.*
-
----
-
 ## Installation
 
 Install Broadworks-OCIP-SOAP with pip:
@@ -50,7 +47,7 @@ python3 -m pip install broadworks-ocip-soap
 
 ## Usage
 
-The package is used in exactly the same way as the original Broadworks OCI-P Interface package. For example:
+The package is used in exactly the same way as the original Broadworks OCI-P Interface package with some small changes to the core object. For example:
 
 ```python
 from broadworks_ocip_soap import BroadworksSOAP
