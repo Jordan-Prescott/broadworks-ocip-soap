@@ -35,6 +35,9 @@ However, as this is another package and uses a different connection there are sm
 - **Based on Broadworks Schema R25:**  
   Adheres to the Broadworks schema R25 (with some changes from earlier R24-based implementations).
 
+- **Changeable User Agent Header**  
+  The argument `user_agent` updates the header in HTTP requests making it easy to identify on your system where commands are comming from.
+
 ---
 
 ## Installation

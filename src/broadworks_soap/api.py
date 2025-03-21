@@ -13,23 +13,24 @@ VERBOSE_DEBUG = 9
 
 @attr.s(slots=True, kw_only=True)
 class BroadworksSOAP:
-    """TODO
+    """BroadworksSOAP - Wrapper class of BroadworksAPI which changes connection to SOAP API.
 
     Attributes:
-
+        url (str): URL of the SOAP API. Do not inclue '?wsdl' at the end
+        username (str): Username to authenticate with
+        password (str): Password to authenticate with
+        user_agent (str, optional): Header in HTTP request. Can be used to identify where calls are coming from.
 
     Raises:
-        e: [description]
-        e: [description]
-
-    Returns:
-        [type]: [description]
+        Raises exception if auth or setting up soap connection fails.
     """
 
     url: str = attr.ib()
     username: str = attr.ib()
     password: str = attr.ib()
-    user_agent: str = attr.ib(default="BroadworksSOAP (TODO: Add link to docs)")
+    user_agent: str = attr.ib(
+        default="BroadworksSOAP (`https://pypi.org/project/broadworks-ocip-soap/`)"
+    )
 
     ocip = attr.ib(default=None)
 
@@ -41,8 +42,6 @@ class BroadworksSOAP:
     authenticated: bool = attr.ib(default=False)
 
     def __attrs_post_init__(self) -> None:
-        """AI is creating summary for __attrs_post_init__"""
-
         # wrap around this object
         self.ocip = BroadworksAPI(
             host="REQUIRED ARGUMENT",
@@ -65,8 +64,8 @@ class BroadworksSOAP:
         session = requests.Session()
         session.auth = (self.username, self.password)
         session.verify = True
-        session.headers.update({"User-Agent": self.user_agent})
         transport = Transport(session=session, timeout=self.timeout)
+        transport.session.headers["User-Agent"] = self.user_agent
         settings = Settings(strict=False, xml_huge_tree=True)
         try:
             self.soap_client = Client(
@@ -74,13 +73,14 @@ class BroadworksSOAP:
             )
             self.logger.info("SOAP client initialised successfully.")
         except Exception as e:
-            self.logger.error("Failed to initialize SOAP client.", exc_info=True)
+            self.logger.error("Failed to initialise SOAP client.", exc_info=True)
             raise e
 
     def command(self, command, **kwargs) -> broadworks_ocip.base.OCICommand:
         """
-        Send a command to the server via SOAP and decode the response.
-        ### SOAP CHANGE: This method now uses the SOAP client instead of a socket.
+        Send a command to the server via SOAP and decode response.
+
+        Utilises BroadworksAPI to achieve encoding and decoding.
         """
         # Instead of managing a persistent socket connection and authentication,
         # we assume that the SOAP client is already set up.
