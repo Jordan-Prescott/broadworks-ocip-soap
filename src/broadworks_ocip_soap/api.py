@@ -31,6 +31,7 @@ class BroadworksSOAP:
     user_agent: str = attr.ib(
         default="BroadworksSOAP (`https://pypi.org/project/broadworks-ocip-soap/`)"
     )
+    verify: bool = attr.ib(default=True)
 
     ocip = attr.ib(default=None)
 
@@ -63,7 +64,7 @@ class BroadworksSOAP:
         """
         session = requests.Session()
         session.auth = (self.username, self.password)
-        session.verify = True
+        session.verify = self.verify
         transport = Transport(session=session, timeout=self.timeout)
         transport.session.headers["User-Agent"] = self.user_agent
         settings = Settings(strict=False, xml_huge_tree=True)
