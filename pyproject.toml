@@ -10,7 +10,7 @@ license-files = []
 
 [project]
 name = "broadworks-ocip-soap"
-version = "0.4.0"
+version = "0.4.1"
 description = "API interface to the OCI-P SOAP provisioning interface of a Broadworks softswitch."
 readme = "README.md"
 requires-python = ">=3.9, <3.13"
